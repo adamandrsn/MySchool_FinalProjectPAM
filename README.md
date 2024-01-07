@@ -1,6 +1,6 @@
 # MySchool_FinalProjectPAM
 ## Project Name
-MySchool
+<b>MySchool</b>
 
 ## Project Description 
 <b>MySchool</b> merupakan sebuah aplikasi yang dirancang untuk mempermudah Admin tata usaha SMA dalam mengelola jadwal ujian dengan *layout User Frindly*, sehingga memudahkan untuk melakukan pengoperasian 
