@@ -15,8 +15,8 @@
 
     <string name="syarat">*Minimal Menginput 1 Mata Pelajaran</string>
     <string name="btn_submit">Submit</string>
-    <string name="detail_siswa">Detail Siswa</string>
-    <string name="edit_siswa">Edit Siswa</string>
+    <string name="detail_siswa">Detail Jadwal Ujian Siswa</string>
+    <string name="edit_siswa">Edit Jadwal Ujian Siswa</string>
     <string name="back">Back</string>
     <string name="yes">Ya</string>
     <string name="no">Tidak</string>
