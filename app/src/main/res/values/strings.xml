@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">MySchool</string>
+    <string name="app_name">Jadwal Ujian SMA</string>
+    <string name="entry_siswa">Tambah Jadwal</string>
+    <string name="deskripsi_no_item">Tidak ada data Siswa. Tap + untuk menambah data</string>
+    <string name="search">Cari</string>
+
+    <string name="tanggal">Tanggal</string>
+    <string name="jammulai1">Jam Mulai Pelajaran 1</string>
+    <string name="jammulai2">Jam Mulai Pelajaran 2</string>
+    <string name="jamselesai1">Jam Selesai Pelajaran 1</string>
+    <string name="jamselesai2">Jam Selesai Pelajaran 2</string>
+    <string name="jurusan">Kelas dan Jurusan</string>
+    <string name="mapel1">Mapel</string>
+    <string name="mapel2">Mapel2</string>
+
+    <string name="syarat">*Minimal Menginput 1 Mata Pelajaran</string>
+    <string name="btn_submit">Submit</string>
+    <string name="detail_siswa">Detail Siswa</string>
+    <string name="edit_siswa">Edit Siswa</string>
+    <string name="back">Back</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="delete">Hapus</string>
+    <string name="update">Edit</string>
+    <string name="attention">Perhatian</string>
+    <string name="tanya">Apakah anda yakin menghapus ini ?</string>
+
 </resources>
