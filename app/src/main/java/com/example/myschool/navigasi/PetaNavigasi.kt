@@ -12,8 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.myschool.R
 
 @Composable
@@ -45,6 +48,8 @@ fun SiswaTopAppBar(
             }
         })
 }
+// Fungsi HostNavigasi berfungsi sebagai navigasi antar halaman
+@Composable
 fun HostNavigasi(
     navController: NavHostController,
     modifier: Modifier = Modifier
@@ -52,8 +57,21 @@ fun HostNavigasi(
     // Mendefinisikan NavHost untuk menangani navigasi menggunakan Compose Navigation
     NavHost(
         navController = navController,
+        startDestination = DestinasiHome.route,
         modifier = Modifier
     ){
-
+        // Menetapkan fungsi composable untuk halaman home
+        composable(DestinasiHome.route) {
+            HomeScreen(
+                navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
+                onDetailClick = { itemId ->
+                    navController.navigate("${DetailsDestination.route}/$itemId")
+                },
+            )
+        }
+        // Menetapkan fungsi composable untuk halaman entry siswa
+        composable(DestinasiEntry.route) {
+            EntrySiswaScreen(navigateBack = { navController.popBackStack() })
+        }
     }
 }
