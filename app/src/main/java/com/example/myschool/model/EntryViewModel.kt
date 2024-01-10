@@ -9,15 +9,10 @@ import com.example.myschool.repositori.RepositoriJadwalSiswa
 
 // Kelas EntryViewModel merupakan ViewModel untuk halaman entri data siswa baru
 class EntryViewModel(private val repositoriJadwalSiswa: RepositoriJadwalSiswa): ViewModel() {
-
-    /**
-     * Berisi status Siswa saat ini
-     */
     // Properti uiStateSiswa menggunakan mutableStateOf untuk menyimpan dan mengelola UI state pada halaman entri data siswa
     var uiStateSiswa by mutableStateOf(UIStateSiswa())
         private set
 
-    /* Fungsi untuk memvalidasi input */
     private fun validasiInput(uiState: DetailSiswa = uiStateSiswa.detailSiswa): Boolean {
         return with(uiState) {
             // Memeriksa apakah field jurusan dan mapel1 pada UI state tidak kosong
@@ -32,7 +27,6 @@ class EntryViewModel(private val repositoriJadwalSiswa: RepositoriJadwalSiswa): 
         println("Updated UIStateEvent: $uiStateSiswa")
     }
 
-    /* Fungsi untuk menyimpan data yang di-entry */
     // Fungsi suspend saveSiswa digunakan untuk menyimpan data siswa baru ke dalam repository jika data valid
     suspend fun saveSiswa() {
         if (validasiInput()) {
@@ -41,9 +35,6 @@ class EntryViewModel(private val repositoriJadwalSiswa: RepositoriJadwalSiswa): 
     }
 }
 
-/**
- * Mewakili Status Ui untuk Siswa.
- */
 // Data class UIStateSiswa merepresentasikan UI state pada halaman entri data siswa
 data class UIStateSiswa(
     // Properti detailSiswa digunakan untuk menyimpan data detail siswa pada UI
@@ -65,7 +56,6 @@ data class DetailSiswa(
     val mapel2: String = "",
 )
 
-/* Fungsi untuk mengkonversi data input ke data dalam tabel sesuai jenis datanya*/
 // Fungsi toSiswa() pada data class DetailSiswa digunakan untuk mengkonversi data input ke data dalam tabel JadwalSiswa
 fun DetailSiswa.toSiswa(): JadwalSiswa = JadwalSiswa(
     id = id,
