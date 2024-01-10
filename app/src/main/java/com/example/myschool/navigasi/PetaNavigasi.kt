@@ -73,5 +73,30 @@ fun HostNavigasi(
         composable(DestinasiEntry.route) {
             EntrySiswaScreen(navigateBack = { navController.popBackStack() })
         }
+        // Menetapkan fungsi composable untuk halaman detail jadwal siswa
+        composable(
+            DetailsDestination.routeWithArgs,
+            arguments = listOf(navArgument(DetailsDestination.siswaIdArg) {
+                type = NavType.IntType
+            })
+        ) { backStackEntry ->
+            val itemId = backStackEntry.arguments?.getInt(DetailsDestination.siswaIdArg)
+            itemId?.let {
+                DetailsScreen(
+                    navigateBack = { navController.popBackStack() },
+                    navigateToEditItem = { navController.navigate("${ItemEditDestination.route}/$it") }
+                )
+            }
+        }
+        // Menetapkan fungsi composable untuk halaman edit jadwal siswa
+        composable(
+            ItemEditDestination.routeWithArgs,
+            arguments = listOf(navArgument(ItemEditDestination.itemIdArg) {
+                type = NavType.IntType
+            })
+        ) {
+            ItemEditScreen(navigateBack = { navController.popBackStack() },
+                onNavigateUp = { navController.navigateUp() })
+        }
     }
 }
