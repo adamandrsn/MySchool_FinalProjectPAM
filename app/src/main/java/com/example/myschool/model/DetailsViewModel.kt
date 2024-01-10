@@ -32,4 +32,19 @@ class DetailsViewModel(
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = ItemDetailsUiState()
             )
+    // Fungsi suspend deleteItem digunakan untuk menghapus data siswa dari repositori
+    suspend fun deleteItem() {
+        repositoriJadwalSiswa.deleteSiswa(uiState.value.detailSiswa.toSiswa())
+    }
+
+    companion object {
+        private const val TIMEOUT_MILLIS = 5_000L
+    }
 }
+
+data class ItemDetailsUiState(
+    val outOfStock: Boolean = true,
+    //detailSiswa digunakan untuk menyimpan data detail siswa pada UI
+    val detailSiswa: DetailSiswa = DetailSiswa(),
+)
+
