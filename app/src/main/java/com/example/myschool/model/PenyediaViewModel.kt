@@ -22,6 +22,21 @@ object PenyediaViewModel {
         initializer {
             EntryViewModel(aplikasiSiswa().container.repositoriJadwalSiswa)
         }
+        // Inisialisasi DetailsViewModel dengan menggunakan savedStateHandle dan repositori dari container aplikasi
+        initializer {
+            DetailsViewModel(
+                createSavedStateHandle(),
+                aplikasiSiswa().container.repositoriJadwalSiswa,
+            )
+        }
+
+        // Inisialisasi EditViewModel dengan menggunakan savedStateHandle dan repositori dari container aplikasi
+        initializer {
+            EditViewModel(
+                createSavedStateHandle(),
+                aplikasiSiswa().container.repositoriJadwalSiswa,
+            )
+        }
 
     }
 }
