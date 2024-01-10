@@ -1,7 +1,5 @@
 package com.example.myschool.navigasi
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -29,9 +27,8 @@ import com.example.myschool.ui.halaman.HomeScreen
 import com.example.myschool.ui.halaman.ItemEditDestination
 import com.example.myschool.ui.halaman.ItemEditScreen
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun SiswaApp(navController: NavHostController = rememberNavController()) {
+fun JadwalSiswaApp(navController: NavHostController = rememberNavController()) {
     HostNavigasi(navController = navController)
 }
 
@@ -60,7 +57,6 @@ fun SiswaTopAppBar(
         })
 }
 // Fungsi HostNavigasi berfungsi sebagai navigasi antar halaman
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun HostNavigasi(
     navController: NavHostController,
