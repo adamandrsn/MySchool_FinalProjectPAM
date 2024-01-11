@@ -1,5 +1,7 @@
 package com.example.myschool.navigasi
 
+import DestinasiDashboard
+import HalamanDashboard
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -20,10 +22,12 @@ import androidx.navigation.navArgument
 import com.example.myschool.R
 import com.example.myschool.ui.halaman.DestinasiEntry
 import com.example.myschool.ui.halaman.DestinasiHome
+import com.example.myschool.ui.halaman.DestinasiHomeSiswa
 import com.example.myschool.ui.halaman.DetailsDestination
 import com.example.myschool.ui.halaman.DetailsScreen
 import com.example.myschool.ui.halaman.EntrySiswaScreen
 import com.example.myschool.ui.halaman.HomeScreen
+import com.example.myschool.ui.halaman.HomeScreenSiswa
 import com.example.myschool.ui.halaman.ItemEditDestination
 import com.example.myschool.ui.halaman.ItemEditScreen
 
@@ -65,13 +69,30 @@ fun HostNavigasi(
     // Mendefinisikan NavHost untuk menangani navigasi menggunakan Compose Navigation
     NavHost(
         navController = navController,
-        startDestination = DestinasiHome.route,
+        startDestination = DestinasiDashboard.route,
         modifier = Modifier
     ){
+        //Menetapkan fungsi composable untuk halaman Dashboard
+        composable(DestinasiDashboard.route) {
+            HalamanDashboard(
+                onNextButtonClicked1 = {
+                navController.navigate(DestinasiHomeSiswa.route)
+            },
+                onNextButtonClicked2 = {
+                    navController.navigate(DestinasiHome.route)
+                } )
+        }
+        // Menetapkan fungsi composable untuk halaman Siswa
+        composable(DestinasiHomeSiswa.route) {
+            HomeScreenSiswa(
+                navigateBack ={ navController.navigate(DestinasiDashboard.route)},
+            )
+        }
         // Menetapkan fungsi composable untuk halaman home
         composable(DestinasiHome.route) {
             HomeScreen(
                 navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
+                navigateBack ={ navController.navigate(DestinasiDashboard.route)},
                 onDetailClick = { itemId ->
                     navController.navigate("${DetailsDestination.route}/$itemId")
                 },

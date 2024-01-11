@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myschool.repositori.RepositoriJadwalSiswa
+import com.example.myschool.ui.halaman.DetailsDestination
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -32,6 +33,7 @@ class DetailsViewModel(
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = ItemDetailsUiState()
             )
+
     // Fungsi suspend deleteItem digunakan untuk menghapus data siswa dari repositori
     suspend fun deleteItem() {
         repositoriJadwalSiswa.deleteSiswa(uiState.value.detailSiswa.toSiswa())
@@ -47,4 +49,5 @@ data class ItemDetailsUiState(
     //detailSiswa digunakan untuk menyimpan data detail siswa pada UI
     val detailSiswa: DetailSiswa = DetailSiswa(),
 )
+
 

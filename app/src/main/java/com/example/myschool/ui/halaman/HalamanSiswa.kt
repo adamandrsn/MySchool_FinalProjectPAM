@@ -47,25 +47,24 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.myschool.R
 import com.example.myschool.data.JadwalSiswa
 import com.example.myschool.model.HomeViewModel
+import com.example.myschool.model.JadwalViewModel
 import com.example.myschool.model.PenyediaViewModel
 import com.example.myschool.navigasi.DestinasiNavigasi
 import com.example.myschool.navigasi.SiswaTopAppBar
 import kotlinx.coroutines.launch
 import kotlin.random.Random
 
-object DestinasiHome : DestinasiNavigasi {
-    override val route = "home"
+object DestinasiHomeSiswa : DestinasiNavigasi {
+    override val route = "siswa"
     override val titleRes = R.string.app_name
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(
-    navigateToItemEntry: () -> Unit,
+fun HomeScreenSiswa(
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
-    onDetailClick: (Int) -> Unit = {},
-    viewModel: HomeViewModel = viewModel(factory = PenyediaViewModel.Factory)
+    viewModel: JadwalViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     val coroutineScope = rememberCoroutineScope()
@@ -73,45 +72,31 @@ fun HomeScreen(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             SiswaTopAppBar(
-                title = stringResource(DestinasiHome.titleRes),
+                title = stringResource(DestinasiHomeSiswa.titleRes),
                 canNavigateBack = true,
                 navigateUp = navigateBack,
                 scrollBehavior = scrollBehavior
             )
         },
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = navigateToItemEntry,
-                shape = MaterialTheme.shapes.medium,
-                modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_large))
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = stringResource(R.string.entry_siswa)
-                )
-            }
-        },
     ) { innerPadding ->
-        val uiStateSiswa by viewModel.homeUiState.collectAsState()
+        val uiStateSiswa by viewModel.jadwalUiState.collectAsState()
         BodyHome(
             itemSiswa = uiStateSiswa.listSiswa,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-            onSiswaClick = onDetailClick,
             onSaveClick = {
                 coroutineScope.launch {
                     navigateBack()
                 }
-            },
-
+            }
         )
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BodyHome(
+fun BodyHomeSiswa(
     itemSiswa: List<JadwalSiswa>,
     modifier: Modifier = Modifier,
     onSaveClick: () -> Unit,
@@ -162,7 +147,7 @@ fun BodyHome(
                     .padding(vertical = dimensionResource(id = R.dimen.padding_small))
             )
         } else if (filteredSiswa.isNotEmpty()){
-            ListSiswa(
+            ListJadwalSiswa(
                 itemSiswa =  filteredSiswa,
                 modifier = Modifier
                     .padding(horizontal = dimensionResource(id = R.dimen.padding_small)),
@@ -173,14 +158,14 @@ fun BodyHome(
 }
 
 @Composable
-fun ListSiswa(
+fun ListJadwalSiswa(
     itemSiswa: List<JadwalSiswa>,
     modifier: Modifier = Modifier,
     onItemClick: (JadwalSiswa) -> Unit
 ) {
     LazyColumn(modifier = Modifier) {
         items(items = itemSiswa, key = { it.id }) { person ->
-            DataSiswa(
+            DataJadwalSiswa(
                 siswa = person,
                 modifier = Modifier
                     .padding(dimensionResource(id = R.dimen.padding_small))
@@ -191,7 +176,7 @@ fun ListSiswa(
 }
 
 @Composable
-fun DataSiswa(
+fun DataJadwalSiswa(
     siswa: JadwalSiswa,
     modifier: Modifier = Modifier
 ) {

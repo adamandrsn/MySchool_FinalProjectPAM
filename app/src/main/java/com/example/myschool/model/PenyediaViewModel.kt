@@ -12,7 +12,9 @@ import com.example.myschool.AplikasiJadwalSiswa
 object PenyediaViewModel {
     // Properti Factory berupa viewModelFactory untuk membuat instance ViewModel dengan berbagai jenis
     val Factory = viewModelFactory {
-
+        initializer {
+            JadwalViewModel(aplikasiSiswa().container.repositoriJadwalSiswa)
+        }
         // Inisialisasi HomeViewModel dengan menggunakan repositori dari container aplikasi
         initializer {
             HomeViewModel(aplikasiSiswa().container.repositoriJadwalSiswa)

@@ -51,7 +51,6 @@ object DestinasiEntry : DestinasiNavigasi {
     override val titleRes = R.string.entry_siswa
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EntrySiswaScreen(
