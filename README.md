@@ -9,17 +9,23 @@
 ## Use Case
 
 <p align=center>
-  <img alt="Use Case Diagram" width=800 src="https://github.com/adamandrsn/MySchool_FinalProjectPAM/assets/115075754/58c3a536-fd25-40d3-ba7f-413d97b41481">
+  <img alt="Use Case Diagram" width=800 src="https://github.com/adamandrsn/MySchool_FinalProjectPAM/assets/115075754/96358bb9-7233-4967-9342-352b12336dcd">
 </p>
 
-* ***Home View* (Halaman Utama):**
-Pengguna dapat menggunakan fitur tambah jadwal dan melihat detail jadwal yang sudah ditambahkan.
+* **Admin *View *:**
+Admin dapat menggunakan fitur buat jadwal, view jadwal, detail jadwal, search jadwal, dan sortby.
+* **Siswa *View *:**
+Siswa dapat melihat dan menggunakan fitur view jadwal, search jadwal, dan sortby.
 * **Buat Jadwal :**
-Pengguna dapat menambahkan jadwal ujian.
+Admin dapat menambahkan jadwal ujian.
 * **Detail Jadwal :**
-Pengguna dapat melihat detail jadwal yang sudah dibuat, serta dapat memperbarui dan menghapus data.
-* ***Search* Jadwal (Mencari Jadwal):**
-Pengguna dapat mencari jadwal ujian dengan ketentuan mata pelajaran tersebut.
+Admin dapat melihat detail jadwal yang sudah dibuat, serta dapat memperbarui dan menghapus data.
+* ***Search* Jadwal :**
+Pengguna dapat mencari jadwal ujian dengan menggunakan kata kunci mata pelajaran, tanggal, maupun kelas.
+* ***Sortby* :**
+Pengguna dapat mengurutkan data dari tanggal terdekat maupun terjauh.
+* ***View* Jadwal :**
+Pengguna dapat melihat data jadwal
 
 ## Project Management (TEAM)
 Adam Anderson Yuniarto : Create, Read, dan Search.<br>
